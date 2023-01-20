@@ -1,6 +1,6 @@
 {
   "name": "@agbishop/mui-rte",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Material-UI Rich Text Editor and Viewer. Forked from transcrobes/mui-rte. Updated for React 18 and MUI 5",
   "keywords": [
     "material-ui",
@@ -19,18 +19,17 @@
     "url": "https://github.com/agbishop/mui-rte/issues"
   },
   "homepage": "https://github.com/niuware/mui-rte#readme",
-  "main": "index.js",
   "private": false,
-  "release": {
-    "branches": ["main"]
-  },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "serve": "cross-env webpack-dev-server --mode development",
-    "build": "tsc",
-    "watch": "tsc --watch"
+    "build": "npm run build:esm && npm run build:cjs",
+    "watch": "tsc --watch",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
   },
   "author": {
     "email": "andrew.bishop9625@gmail.com",
@@ -63,6 +62,7 @@
     "react": ">=18.2.0",
     "react-dom": ">=18.2.0",
     "ts-loader": "^9.4.2",
+    "tslib": "^2.4.1",
     "typescript": "^4.9.4",
     "utf-8-validate": "^6.0.0",
     "webpack": "^5.75.0",
@@ -82,12 +82,12 @@
     "immutable": "^3.8.2",
     "tss-react": "^4.5.2"
   },
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "files": [
-    "dist",
-    "index.js",
-    "index.d.ts"
+    "dist"
   ],
-  "types": "index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "directories": {
     "example": "examples"
   }

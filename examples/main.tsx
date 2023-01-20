@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client";
-import Events from './events'
+import Events from './events/'
 import Themed from './theme'
 import Basic from './basic'
 import RefSave from './ref-save'
