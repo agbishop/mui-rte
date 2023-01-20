@@ -8,6 +8,7 @@
         "esModuleInterop": true,
         "noImplicitReturns": true,
         "noUnusedParameters": true,
+        "allowSyntheticDefaultImports": true,
         "noUnusedLocals": true,
         "outDir": "dist",
         "baseUrl": ".",

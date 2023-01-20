@@ -83,7 +83,7 @@ const CustomControls = () => {
                     name: "my-callback",
                     component: MyCallbackComponent,
                     type: "callback",
-                    onClick: (_editorState, name, _anchor) => {
+                    onClick: (_editorState: EditorState, name: string, _anchor:HTMLElement) => {
                         console.log(`Clicked ${name} control`)
                     }
                 },

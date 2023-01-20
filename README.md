@@ -2,7 +2,9 @@
 
 The Material-UI Rich Text Editor and Viewer
 
-<img src="https://raw.githubusercontent.com/agbishop/agbishop.github.io/master/public/assets/mui-rte/editor-1-9-0.png" width="600" />
+NOTE: This is a fork of a fork to get rid of MUIv4 dependencies
+
+<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/editor-1-9-0.png" width="600" />
 
 **mui-rte** is a complete text editor and viewer for the MUI library (formerly Material-UI) based on `draft-js` and written in Typescript. It is ready to use out of the box yet supports user defined blocks, styles, autocomplete strategies, async/sync custom atomic blocks, callbacks, and decorators as well as toolbar and theme customization to enhance the editor to all needs.
 
@@ -201,10 +203,6 @@ const emojis = [
 ```
 
 Check [this sample](https://github.com/agbishop/mui-rte/blob/master/examples/autocomplete/index.tsx) that shows how to add multiple autocomplete strategies to a single editor.
-
-### Atomic strategy example
-
-Check [this sample](https://github.com/agbishop/mui-rte/blob/master/examples/autocomplete/index.tsx) that shows how to combine atomic custom controls with the autocomplete strategy feature.
 
 ## Custom Decorators
 
@@ -434,15 +432,10 @@ $ npm run build
 $ npm run serve
 ```
 
-## Future plans
-
-- Add test coverage
-- Refactor code
-- Add new features
 
 ## Suggestions and issues
 
-N/A
+This is a fork of a fork, don't expect any support. PRs welcome though.
 
 ## License
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import * as ReactDOM from 'react-dom'
+import ReactDOM from "react-dom/client";
 import Events from './events'
 import Themed from './theme'
 import Basic from './basic'
@@ -11,13 +11,9 @@ import InlineToolbar from './inline-toolbar'
 import CustomInlineToolbar from './custom-inline-toolbar'
 import LoadHTML from './load-html'
 import ResetValue from './reset-value'
-import AtomicCustomBlock from './atomic-custom-block'
-import KeyBindings from './key-bindings'
 import MaxLength from './max-length'
 import Autocomplete from './autocomplete'
 import AutocompleteAtomic from './autocomplete-atomic'
-import AsyncImageUpload from './async-image-upload'
-import AsyncAtomicCustomBlock from './async-atomic-custom-block'
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles'
 
 const defaultTheme: Theme = createTheme({})
@@ -41,14 +37,10 @@ const App = () => {
                 <button onClick={() => setSample(<Decorators />)}>Decorators</button>
                 <button onClick={() => setSample(<InlineToolbar />)}>Inline Toolbar</button>
                 <button onClick={() => setSample(<CustomInlineToolbar />)}>Custom Inline Toolbar</button>
-                <button onClick={() => setSample(<AtomicCustomBlock />)}>Atomic Custom Block</button>
-                <button onClick={() => setSample(<AsyncAtomicCustomBlock />)}>Async Atomic Custom Block</button>
-                <button onClick={() => setSample(<AsyncImageUpload />)}>Async image upload</button>
                 <button onClick={() => setSample(<ReadOnly />)}>Read Only</button>
                 <button onClick={() => setSample(<Events />)}>Events</button>
                 <button onClick={() => setSample(<LoadHTML />)}>Load from HTML</button>
                 <button onClick={() => setSample(<ResetValue />)}>Reset value</button>
-                <button onClick={() => setSample(<KeyBindings />)}>Key Bindings</button>
                 <button onClick={() => setSample(<MaxLength />)}>Max length</button>
                 <button onClick={() => setSample(<Autocomplete />)}>Autocomplete</button>
                 <button onClick={() => setSample(<AutocompleteAtomic />)}>Autocomplete Atomic</button>
@@ -65,4 +57,5 @@ const App = () => {
     )
 }
 
-ReactDOM.render(<App />, document.getElementById("root"))
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
+root.render(<App />)
