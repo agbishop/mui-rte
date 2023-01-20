@@ -1,7 +1,7 @@
 {
-  "name": "mui-rte",
+  "name": "@agbishop/mui-rte",
   "version": "3.0.0",
-  "description": "Material-UI Rich Text Editor and Viewer. Forked from transcrobes/mui-rte. Updated for React 18 and Material 5",
+  "description": "Material-UI Rich Text Editor and Viewer. Forked from transcrobes/mui-rte. Updated for React 18 and MUI 5",
   "keywords": [
     "material-ui",
     "mui",
@@ -16,7 +16,7 @@
     "url": "git+https://github.com/niuware/mui-rte.git"
   },
   "bugs": {
-    "url": "https://github.com/niuware/mui-rte/issues"
+    "url": "https://github.com/agbishop/mui-rte/issues"
   },
   "homepage": "https://github.com/niuware/mui-rte#readme",
   "main": "index.js",
@@ -25,7 +25,20 @@
     "build": "tsc",
     "watch": "tsc --watch"
   },
-  "author": "Andrew Bishop",
+  "author": {
+    "email": "andrew.bishop9625@gmail.com",
+    "name": "Andrew Bishop"
+  },
+  "contributors": [
+    {
+      "name": "Anton Melser",
+      "url": "https://transcrob.es"
+    },
+    {
+      "name": "Erik Lopez",
+      "url": "https://github.com/niuware"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.20.12",
