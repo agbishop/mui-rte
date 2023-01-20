@@ -2,7 +2,7 @@
 
 The Material-UI Rich Text Editor and Viewer
 
-<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/editor-1-9-0.png" width="600" />
+<img src="https://raw.githubusercontent.com/agbishop/agbishop.github.io/master/public/assets/mui-rte/editor-1-9-0.png" width="600" />
 
 **mui-rte** is a complete text editor and viewer for the MUI library (formerly Material-UI) based on `draft-js` and written in Typescript. It is ready to use out of the box yet supports user defined blocks, styles, autocomplete strategies, async/sync custom atomic blocks, callbacks, and decorators as well as toolbar and theme customization to enhance the editor to all needs.
 
@@ -53,11 +53,11 @@ ReactDOM.render(
 
 ## Material-UI v4 compatibility
 
-`mui-rte` version 2.x is compatible with MUI (v5) only. You can still use version [1.x](https://github.com/niuware/mui-rte/releases/tag/1.29.0) for Material-UI v4. Current code using `mui-rte` version 1.x should be compatible with version 2.x, the only breaking change is that it requires to be wrapped on a `ThemeProvider` as shown in the examples.
+`mui-rte` version 2.x is compatible with MUI (v5) only. You can still use version [1.x](https://github.com/agbishop/mui-rte/releases/tag/1.29.0) for Material-UI v4. Current code using `mui-rte` version 1.x should be compatible with version 2.x, the only breaking change is that it requires to be wrapped on a `ThemeProvider` as shown in the examples.
 
 ## Examples
 
-Check the [examples](https://github.com/niuware/mui-rte/tree/master/examples) directory for more.
+Check the [examples](https://github.com/agbishop/mui-rte/tree/master/examples) directory for more.
 
 ## Custom Controls
 
@@ -124,15 +124,13 @@ const MyBlock = (props) => {
 
 ### Adding a custom atomic block (Async)
 
-<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/async-upload-demo.gif" width="600" />
+It is possible to insert custom blocks based on asynchronous behavior using the `insertAtomicBlockAsync` API. The above example shows an [example](https://github.com/agbishop/mui-rte/blob/master/examples/async-image-upload/index.tsx) on how to upload an image and use the `MUIRichTextEditor` default image control for further edition. You can use this behavior to upload a file when dropping it inside the editor and render it as an image entity after upload.
 
-It is possible to insert custom blocks based on asynchronous behavior using the `insertAtomicBlockAsync` API. The above example shows an [example](https://github.com/niuware/mui-rte/blob/master/examples/async-image-upload/index.tsx) on how to upload an image and use the `MUIRichTextEditor` default image control for further edition. You can use this behavior to upload a file when dropping it inside the editor and render it as an image entity after upload.
-
-Check this [other sample](https://github.com/niuware/mui-rte/blob/master/examples/async-atomic-custom-block/index.tsx) that shows how to add a `@mui/material` Card with asynchronous downloaded content.
+Check this [other sample](https://github.com/agbishop/mui-rte/blob/master/examples/async-atomic-custom-block/index.tsx) that shows how to add a `@mui/material` Card with asynchronous downloaded content.
 
 ### Adding a custom atomic block (Sync)
 
-Check [this sample](https://github.com/niuware/mui-rte/blob/master/examples/atomic-custom-block/index.tsx) that shows how to create a control to add a `@mui/material` Card component to the editor.
+Check [this sample](https://github.com/agbishop/mui-rte/blob/master/examples/atomic-custom-block/index.tsx) that shows how to create a control to add a `@mui/material` Card component to the editor.
 
 ### Adding a custom callback control
 
@@ -161,7 +159,7 @@ import { EditorState } from "draft-js";
 
 ## Autocomplete strategies
 
-<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/ac-demo.gif" width="600" />
+<img src="https://raw.githubusercontent.com/agbishop/agbishop.github.io/master/public/assets/mui-rte/ac-demo.gif" width="600" />
 
 You can define autocomplete strategies to present suggested content lists based on the text input. Just set your trigger character, add some search keys and the content to insert and the editor will do everything for you. You can navigate through suggestions using the keyboard arrows and finally press 'Enter' to insert your content into the editor.
 
@@ -202,11 +200,11 @@ const emojis = [
 />
 ```
 
-Check [this sample](https://github.com/niuware/mui-rte/blob/master/examples/autocomplete/index.tsx) that shows how to add multiple autocomplete strategies to a single editor.
+Check [this sample](https://github.com/agbishop/mui-rte/blob/master/examples/autocomplete/index.tsx) that shows how to add multiple autocomplete strategies to a single editor.
 
 ### Atomic strategy example
 
-Check [this sample](https://github.com/niuware/mui-rte/blob/master/examples/autocomplete/index.tsx) that shows how to combine atomic custom controls with the autocomplete strategy feature.
+Check [this sample](https://github.com/agbishop/mui-rte/blob/master/examples/autocomplete/index.tsx) that shows how to combine atomic custom controls with the autocomplete strategy feature.
 
 ## Custom Decorators
 
@@ -425,7 +423,7 @@ Object.assign(defaultTheme, {
 
 ## Changelog
 
-Check the [release notes](https://github.com/niuware/mui-rte/releases) for the changelog.
+Check the [release notes](https://github.com/agbishop/mui-rte/releases) for the changelog.
 
 ## Development
 
@@ -444,7 +442,7 @@ $ npm run serve
 
 ## Suggestions and issues
 
-Please feel free to leave your comment on the [Issues](https://github.com/niuware/mui-rte/issues) tab.
+N/A
 
 ## License
 
