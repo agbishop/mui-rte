@@ -1,24 +1,22 @@
-import React, { FunctionComponent } from 'react'
-import { createStyles, withStyles, WithStyles } from '@mui/styles'
-import { Theme } from '@mui/material/styles'
+import { Theme } from "@mui/material/styles";
+import React, { FunctionComponent } from "react";
+import { withStyles } from "tss-react/mui";
 
-const styles = ({ spacing, palette }: Theme) => createStyles({
-    root: {
-        backgroundColor: palette.grey[200],
-        padding: spacing(1, 2, 1, 2)
-    }
-})
-
-interface IBlockquoteProps extends WithStyles<typeof styles> {
-    children?: React.ReactNode
+interface IBlockquoteProps {
+  children?: React.ReactNode;
+  classes?: Partial<Record<"root", string>>;
 }
 
-const CodeBlock: FunctionComponent<IBlockquoteProps> = (props) => {
-    return (
-        <div className={props.classes.root}>
-            {props.children}
-        </div>
-    )
-}
+const CodeBlock: FunctionComponent<IBlockquoteProps> = ({
+  classes,
+  children,
+}: IBlockquoteProps) => {
+  return <div className={classes!.root}>{children}</div>;
+};
 
-export default withStyles(styles, { withTheme: true })(CodeBlock)
+export default withStyles(CodeBlock, ({ spacing, palette }: Theme) => ({
+  root: {
+    backgroundColor: palette.grey[200],
+    padding: spacing(1, 2, 1, 2),
+  },
+}));
