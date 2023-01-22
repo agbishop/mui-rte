@@ -13,12 +13,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/niuware/mui-rte.git"
+    "url": "git+https://github.com/agbishop/mui-rte.git"
   },
   "bugs": {
     "url": "https://github.com/agbishop/mui-rte/issues"
   },
-  "homepage": "https://github.com/niuware/mui-rte#readme",
+  "homepage": "https://github.com/agbishop/mui-rte#readme",
   "private": false,
   "publishConfig": {
     "access": "public",
