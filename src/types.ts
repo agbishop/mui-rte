@@ -1,6 +1,6 @@
 // stolen from @mui/styles/withStyles/withStyles.d.ts
 
-import * as CSS from "csstype";
+import * as CSS from 'csstype';
 
 // private JSS type that should be public
 type JSSNormalCssProperties = CSS.Properties<number | string>;
@@ -12,7 +12,7 @@ export type PropsFunc<Props extends object, T> = (props: Props) => T;
  * Allows the user to augment the properties available
  */
 export interface BaseCSSProperties extends JSSNormalCssProperties {
-  "@font-face"?: JSSFontface | JSSFontface[];
+  '@font-face'?: JSSFontface | JSSFontface[];
 }
 
 export interface CSSProperties extends BaseCSSProperties {
@@ -29,14 +29,14 @@ export interface CSSProperties extends BaseCSSProperties {
 
 export type BaseCreateCSSProperties<Props extends object = {}> = {
   [P in keyof BaseCSSProperties]:
-    | BaseCSSProperties[P]
-    | PropsFunc<Props, BaseCSSProperties[P]>;
+  | BaseCSSProperties[P]
+  | PropsFunc<Props, BaseCSSProperties[P]>;
 };
 
 export interface CreateCSSProperties<Props extends object = {}>
   extends BaseCreateCSSProperties<Props> {
   // Allow pseudo selectors and media queries
   [k: string]:
-    | BaseCreateCSSProperties<Props>[keyof BaseCreateCSSProperties<Props>]
-    | CreateCSSProperties<Props>;
+  | BaseCreateCSSProperties<Props>[keyof BaseCreateCSSProperties<Props>]
+  | CreateCSSProperties<Props>;
 }

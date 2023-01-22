@@ -30,8 +30,8 @@
     "watch": "tsc --watch",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "lint": "eslint ./",
-    "lint-fix": "eslint --fix ./"
+    "lint": "eslint src/**/*.ts*",
+    "lint-fix": "eslint --fix src/**/*.ts*"
   },
   "author": {
     "email": "andrew.bishop9625@gmail.com",
@@ -86,6 +86,7 @@
   "dependencies": {
     "@types/draft-js": "^0.11.10",
     "classnames": "^2.3.2",
+    "csstype": "^3.1.1",
     "draft-js": "^0.11.7",
     "immutable": "^3.8.2",
     "tss-react": "^4.5.2"

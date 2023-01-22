@@ -1,1 +1,1 @@
-export {default} from './dist/MUIRichTextEditor'
+export { default } from './dist/MUIRichTextEditor';

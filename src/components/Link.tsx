@@ -1,6 +1,6 @@
-import { Link as MuiLink } from "@mui/material";
-import { ContentState } from "draft-js";
-import React from "react";
+import { Link as MuiLink } from '@mui/material';
+import { ContentState } from 'draft-js';
+import React from 'react';
 
 type TLinkProps = {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ type TLinkProps = {
   entityKey: string;
 };
 
-const Link = ({ contentState, entityKey, children }: TLinkProps) => {
+function Link({ contentState, entityKey, children }: TLinkProps) {
   const { url, className } = contentState.getEntity(entityKey).getData();
   return (
     <MuiLink
@@ -19,6 +19,6 @@ const Link = ({ contentState, entityKey, children }: TLinkProps) => {
       {children}
     </MuiLink>
   );
-};
+}
 
 export default Link;

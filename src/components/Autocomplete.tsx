@@ -1,6 +1,6 @@
-import { List, ListItem, Paper } from "@mui/material";
-import React from "react";
-import { withStyles } from "tss-react/mui";
+import { List, ListItem, Paper } from '@mui/material';
+import React from 'react';
+import { withStyles } from 'tss-react/mui';
 
 export type TAutocompleteItem = {
   keys: string[];
@@ -14,17 +14,17 @@ interface TAutocompleteProps {
   left: number;
   selectedIndex: number;
   onClick: (selectedIndex: number) => void;
-  classes?: Partial<Record<"container" | "item", string>>;
+  classes?: Partial<Record<'container' | 'item', string>>;
 }
 
-const Autocomplete = ({
+function Autocomplete({
   classes,
   items,
   top,
   left,
   selectedIndex,
   onClick,
-}: TAutocompleteProps) => {
+}: TAutocompleteProps) {
   if (!items.length) {
     return null;
   }
@@ -32,11 +32,11 @@ const Autocomplete = ({
     <Paper
       className={classes!.container}
       style={{
-        top: top,
-        left: left,
+        top,
+        left,
       }}
     >
-      <List dense={true}>
+      <List dense>
         {items.map((item, index) => (
           <ListItem
             key={index}
@@ -50,15 +50,15 @@ const Autocomplete = ({
       </List>
     </Paper>
   );
-};
+}
 
 export default withStyles(Autocomplete, {
   container: {
-    minWidth: "200px",
-    position: "absolute",
+    minWidth: '200px',
+    position: 'absolute',
     zIndex: 10,
   },
   item: {
-    cursor: "pointer",
+    cursor: 'pointer',
   },
 });

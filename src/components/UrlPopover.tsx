@@ -1,22 +1,22 @@
-import CheckIcon from "@mui/icons-material/Check";
-import DeleteIcon from "@mui/icons-material/DeleteOutline";
-import FormatAlignCenter from "@mui/icons-material/FormatAlignCenter";
-import FormatAlignLeft from "@mui/icons-material/FormatAlignLeft";
-import FormatAlignRight from "@mui/icons-material/FormatAlignRight";
-import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
-import MovieIcon from "@mui/icons-material/Movie";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
-import Grid from "@mui/material/Grid";
-import Popover from "@mui/material/Popover";
-import { Theme } from "@mui/material/styles";
-import TextField from "@mui/material/TextField";
-import React, { useState } from "react";
-import { withStyles } from "tss-react/mui";
+import CheckIcon from '@mui/icons-material/Check';
+import DeleteIcon from '@mui/icons-material/DeleteOutline';
+import FormatAlignCenter from '@mui/icons-material/FormatAlignCenter';
+import FormatAlignLeft from '@mui/icons-material/FormatAlignLeft';
+import FormatAlignRight from '@mui/icons-material/FormatAlignRight';
+import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
+import MovieIcon from '@mui/icons-material/Movie';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Grid from '@mui/material/Grid';
+import Popover from '@mui/material/Popover';
+import { Theme } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import React, { useState } from 'react';
+import { withStyles } from 'tss-react/mui';
 
-export type TAlignment = "left" | "center" | "right";
+export type TAlignment = 'left' | 'center' | 'right';
 
-export type TMediaType = "image" | "video";
+export type TMediaType = 'image' | 'video';
 
 export type TUrlData = {
   url?: string;
@@ -31,7 +31,7 @@ interface IUrlPopoverStateProps {
   data?: TUrlData;
   isMedia?: boolean;
   onConfirm: (isMedia?: boolean, ...args: any) => void;
-  classes?: Partial<Record<"linkPopover" | "linkTextField", string>>;
+  classes?: Partial<Record<'linkPopover' | 'linkTextField', string>>;
 }
 
 const styles = ({ spacing }: Theme) => ({
@@ -40,46 +40,47 @@ const styles = ({ spacing }: Theme) => ({
     maxWidth: 250,
   },
   linkTextField: {
-    width: "100%",
+    width: '100%',
   },
 });
 
-const UrlPopover = (props: IUrlPopoverStateProps) => {
-  const [data, setData] = useState<TUrlData>(
-    props.data || {
-      url: undefined,
-      width: undefined,
-      height: undefined,
-      alignment: undefined,
-      type: undefined,
-    }
-  );
+const defaultData: TUrlData = {
+  url: undefined,
+  width: undefined,
+  height: undefined,
+  alignment: undefined,
+  type: undefined,
+};
 
-  const { classes } = props;
+const UrlPopover:React.FC<IUrlPopoverStateProps> = (props) => {
+  const {
+    data, anchor, isMedia, onConfirm, classes,
+  } = props;
+  const [urlData, setUrlData] = useState<TUrlData>(data || defaultData);
 
-  const onSizeChange = (value: any, prop: "width" | "height") => {
-    if (value === "") {
-      setData({ ...data, [prop]: undefined });
+  const onSizeChange = (value: any, prop: 'width' | 'height') => {
+    if (value === '') {
+      setUrlData({ ...urlData, [prop]: undefined });
       return;
     }
     const intValue = parseInt(value, 10);
-    if (isNaN(intValue)) {
+    if (Number.isNaN(intValue)) {
       return;
     }
-    setData({ ...data, [prop]: intValue });
+    setUrlData({ ...urlData, [prop]: intValue });
   };
 
   return (
     <Popover
-      open={props.anchor !== undefined}
-      anchorEl={props.anchor}
+      open={anchor !== undefined}
+      anchorEl={anchor}
       anchorOrigin={{
-        vertical: "bottom",
-        horizontal: "left",
+        vertical: 'bottom',
+        horizontal: 'left',
       }}
       transformOrigin={{
-        vertical: "top",
-        horizontal: "left",
+        vertical: 'top',
+        horizontal: 'left',
       }}
     >
       <div className={classes!.linkPopover}>
@@ -88,36 +89,34 @@ const UrlPopover = (props: IUrlPopoverStateProps) => {
             <Grid item xs={12}>
               <TextField
                 className={classes!.linkTextField}
-                onChange={(event) =>
-                  setData({ ...data, url: event.target.value })
-                }
+                onChange={(event) => setUrlData({ ...urlData, url: event.target.value })}
                 label="URL"
-                defaultValue={props.data && props.data.url}
-                autoFocus={true}
+                defaultValue={data && data.url}
+                autoFocus
                 InputLabelProps={{
                   shrink: true,
                 }}
               />
             </Grid>
-            {props.isMedia ? (
+            {isMedia ? (
               <>
                 <Grid item xs={12}>
                   <ButtonGroup fullWidth>
                     <Button
                       color={
-                        !data.type || data.type === "image"
-                          ? "primary"
-                          : "inherit"
+                        !urlData.type || urlData.type === 'image'
+                          ? 'primary'
+                          : 'inherit'
                       }
                       size="small"
-                      onClick={() => setData({ ...data, type: "image" })}
+                      onClick={() => setUrlData({ ...urlData, type: 'image' })}
                     >
                       <InsertPhotoIcon />
                     </Button>
                     <Button
-                      color={data.type === "video" ? "primary" : "inherit"}
+                      color={urlData.type === 'video' ? 'primary' : 'inherit'}
                       size="small"
-                      onClick={() => setData({ ...data, type: "video" })}
+                      onClick={() => setUrlData({ ...urlData, type: 'video' })}
                     >
                       <MovieIcon />
                     </Button>
@@ -125,10 +124,8 @@ const UrlPopover = (props: IUrlPopoverStateProps) => {
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
-                    onChange={(event) =>
-                      onSizeChange(event.target.value, "width")
-                    }
-                    value={data.width || ""}
+                    onChange={(event) => onSizeChange(event.target.value, 'width')}
+                    value={urlData.width || ''}
                     label="Width"
                     InputLabelProps={{
                       shrink: true,
@@ -137,10 +134,8 @@ const UrlPopover = (props: IUrlPopoverStateProps) => {
                 </Grid>
                 <Grid item xs={6}>
                   <TextField
-                    onChange={(event) =>
-                      onSizeChange(event.target.value, "height")
-                    }
-                    value={data.height || ""}
+                    onChange={(event) => onSizeChange(event.target.value, 'height')}
+                    value={urlData.height || ''}
                     label="Height"
                     InputLabelProps={{
                       shrink: true,
@@ -150,25 +145,25 @@ const UrlPopover = (props: IUrlPopoverStateProps) => {
                 <Grid item xs={12}>
                   <ButtonGroup fullWidth>
                     <Button
-                      color={data.alignment === "left" ? "primary" : "inherit"}
+                      color={urlData.alignment === 'left' ? 'primary' : 'inherit'}
                       size="small"
-                      onClick={() => setData({ ...data, alignment: "left" })}
+                      onClick={() => setUrlData({ ...urlData, alignment: 'left' })}
                     >
                       <FormatAlignLeft />
                     </Button>
                     <Button
                       color={
-                        data.alignment === "center" ? "primary" : "inherit"
+                        urlData.alignment === 'center' ? 'primary' : 'inherit'
                       }
                       size="small"
-                      onClick={() => setData({ ...data, alignment: "center" })}
+                      onClick={() => setUrlData({ ...urlData, alignment: 'center' })}
                     >
                       <FormatAlignCenter />
                     </Button>
                     <Button
-                      color={data.alignment === "right" ? "primary" : "inherit"}
+                      color={urlData.alignment === 'right' ? 'primary' : 'inherit'}
                       size="small"
-                      onClick={() => setData({ ...data, alignment: "right" })}
+                      onClick={() => setUrlData({ ...urlData, alignment: 'right' })}
                     >
                       <FormatAlignRight />
                     </Button>
@@ -184,22 +179,20 @@ const UrlPopover = (props: IUrlPopoverStateProps) => {
             direction="row"
             justifyContent="flex-end"
           >
-            {props.data && props.data.url ? (
-              <Button onClick={() => props.onConfirm(props.isMedia, "")}>
+            {data && data.url ? (
+              <Button onClick={() => onConfirm(isMedia, '')}>
                 <DeleteIcon />
               </Button>
             ) : null}
             <Button
-              onClick={() =>
-                props.onConfirm(
-                  props.isMedia,
-                  data.url,
-                  data.width,
-                  data.height,
-                  data.alignment,
-                  data.type
-                )
-              }
+              onClick={() => onConfirm(
+                isMedia,
+                urlData.url,
+                urlData.width,
+                urlData.height,
+                urlData.alignment,
+                urlData.type,
+              )}
             >
               <CheckIcon />
             </Button>

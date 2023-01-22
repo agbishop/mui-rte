@@ -1,6 +1,6 @@
-import IconButton from "@mui/material/IconButton";
-import React, { FunctionComponent } from "react";
-import { TToolbarButtonSize, TToolbarComponentProps } from "./Toolbar";
+import IconButton from '@mui/material/IconButton';
+import React, { FunctionComponent } from 'react';
+import { TToolbarButtonSize, TToolbarComponentProps } from './Toolbar';
 
 interface IToolbarButtonProps {
   id?: string;
@@ -17,12 +17,11 @@ interface IToolbarButtonProps {
   component?: FunctionComponent<TToolbarComponentProps>;
 }
 
-const ToolbarButton = (props: IToolbarButtonProps) => {
-  const size = !props.inlineMode ? props.size || "medium" : "small";
-  const toolbarId = props.inlineMode ? "-toolbar" : "";
-  const editorId = props.editorId || "mui-rte";
-  const elemId =
-    editorId + "-" + (props.id || props.label) + "-button" + toolbarId;
+function ToolbarButton(props: IToolbarButtonProps) {
+  const size = !props.inlineMode ? props.size || 'medium' : 'small';
+  const toolbarId = props.inlineMode ? '-toolbar' : '';
+  const editorId = props.editorId || 'mui-rte';
+  const elemId = `${editorId}-${props.id || props.label}-button${toolbarId}`;
   const sharedProps = {
     id: elemId,
     onMouseDown: (e: React.MouseEvent) => {
@@ -38,7 +37,7 @@ const ToolbarButton = (props: IToolbarButtonProps) => {
       <IconButton
         {...sharedProps}
         aria-label={props.label}
-        color={props.active ? "primary" : "default"}
+        color={props.active ? 'primary' : 'default'}
         size={size}
       >
         {props.icon}
@@ -49,6 +48,6 @@ const ToolbarButton = (props: IToolbarButtonProps) => {
     return <props.component {...sharedProps} active={props.active || false} />;
   }
   return null;
-};
+}
 
 export default ToolbarButton;

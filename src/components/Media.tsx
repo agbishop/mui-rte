@@ -1,8 +1,8 @@
-import { Theme } from "@mui/material/styles";
-import classNames from "classnames";
-import { ContentBlock, ContentState } from "draft-js";
-import React from "react";
-import { withStyles } from "tss-react/mui";
+import { Theme } from '@mui/material/styles';
+import classNames from 'classnames';
+import { ContentBlock, ContentState } from 'draft-js';
+import React from 'react';
+import { withStyles } from 'tss-react/mui';
 
 interface IMediaProps {
   block: ContentBlock;
@@ -10,20 +10,24 @@ interface IMediaProps {
   blockProps: any;
   onClick: (block: ContentBlock) => void;
   classes?: Partial<
-    Record<
-      | "root"
-      | "editable"
-      | "focused"
-      | "centered"
-      | "leftAligned"
-      | "rightAligned",
-      string
-    >
+  Record<
+  | 'root'
+  | 'editable'
+  | 'focused'
+  | 'centered'
+  | 'leftAligned'
+  | 'rightAligned',
+  string
+  >
   >;
 }
 
-const Media = ({ classes, blockProps, contentState, block }: IMediaProps) => {
-  const { url, width, height, alignment, type } = contentState
+function Media({
+  classes, blockProps, contentState, block,
+}: IMediaProps) {
+  const {
+    url, width, height, alignment, type,
+  } = contentState
     .getEntity(block.getEntityAt(0))
     .getData();
   const { onClick, readOnly, focusKey } = blockProps;
@@ -35,8 +39,8 @@ const Media = ({ classes, blockProps, contentState, block }: IMediaProps) => {
         [classes!.editable!]: !readOnly,
         [classes!.focused!]: !readOnly && focusKey === block.getKey(),
       }),
-      width: width,
-      height: type === "video" ? "auto" : height,
+      width,
+      height: type === 'video' ? 'auto' : height,
       onClick: () => {
         if (readOnly) {
           return;
@@ -45,10 +49,10 @@ const Media = ({ classes, blockProps, contentState, block }: IMediaProps) => {
       },
     };
 
-    if (!type || type === "image") {
+    if (!type || type === 'image') {
       return <img {...componentProps} />;
     }
-    if (type === "video") {
+    if (type === 'video') {
       return <video {...componentProps} autoPlay={false} controls />;
     }
     return null;
@@ -57,24 +61,24 @@ const Media = ({ classes, blockProps, contentState, block }: IMediaProps) => {
   return (
     <div
       className={classNames({
-        [classes!.centered!]: alignment === "center",
-        [classes!.leftAligned!]: alignment === "left",
-        [classes!.rightAligned!]: alignment === "right",
+        [classes!.centered!]: alignment === 'center',
+        [classes!.leftAligned!]: alignment === 'left',
+        [classes!.rightAligned!]: alignment === 'right',
       })}
     >
       {htmlTag()}
     </div>
   );
-};
+}
 
 export default withStyles(Media, ({ shadows }: Theme) => ({
   root: {
-    margin: "5px 0 1px",
-    outline: "none",
+    margin: '5px 0 1px',
+    outline: 'none',
   },
   editable: {
-    cursor: "pointer",
-    "&:hover": {
+    cursor: 'pointer',
+    '&:hover': {
       boxShadow: shadows[3],
     },
   },
@@ -82,12 +86,12 @@ export default withStyles(Media, ({ shadows }: Theme) => ({
     boxShadow: shadows[3],
   },
   centered: {
-    textAlign: "center" as const,
+    textAlign: 'center' as const,
   },
   leftAligned: {
-    textAlign: "left" as const,
+    textAlign: 'left' as const,
   },
   rightAligned: {
-    textAlign: "right" as const,
+    textAlign: 'right' as const,
   },
 }));

@@ -1,3 +1,3 @@
-import MUIRichTextEditor from "./MUIRichTextEditor";
+import MUIRichTextEditor from './MUIRichTextEditor';
 
-export {MUIRichTextEditor}
+export default { MUIRichTextEditor };
