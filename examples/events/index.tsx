@@ -1,6 +1,7 @@
 import React from 'react'
 import { EditorState, convertToRaw } from 'draft-js'
-import MUIRichTextEditor from '../../'
+import MUIRichTextEditor from "../../src/MUIRichTextEditor";
+
 
 const save = (data: string) => {
     console.log(data)

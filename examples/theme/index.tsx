@@ -1,7 +1,7 @@
 import React from 'react'
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles'
-import MUIRichTextEditor from '../../'
-import { TMUIRichTextEditorStyles } from '../../'
+import MUIRichTextEditor from "../../src/MUIRichTextEditor";
+import { TMUIRichTextEditorStyles } from '../../index'
 
 export const defaultTheme: Theme = createTheme({
     palette: {

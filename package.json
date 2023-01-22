@@ -13,12 +13,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/niuware/mui-rte.git"
+    "url": "git+https://github.com/agbishop/mui-rte.git"
   },
   "bugs": {
     "url": "https://github.com/agbishop/mui-rte/issues"
   },
-  "homepage": "https://github.com/niuware/mui-rte#readme",
+  "homepage": "https://github.com/agbishop/mui-rte#readme",
   "private": false,
   "publishConfig": {
     "access": "public",
@@ -29,7 +29,9 @@
     "build": "npm run build:esm && npm run build:cjs",
     "watch": "tsc --watch",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "lint": "eslint ./",
+    "lint-fix": "eslint --fix ./"
   },
   "author": {
     "email": "andrew.bishop9625@gmail.com",
@@ -54,11 +56,17 @@
     "@mui/material": "^5.11.5",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@webpack-cli/serve": "^2.0.1",
     "acorn": "^8.8.1",
     "bufferutil": "^4.0.7",
     "cross-env": "^7.0.3",
-    "eslint": "^8.32.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "react": ">=18.2.0",
     "react-dom": ">=18.2.0",
     "ts-loader": "^9.4.2",
@@ -72,8 +80,8 @@
   "peerDependencies": {
     "@mui/icons-material": "^5.0.0",
     "@mui/material": "^5.0.0",
-    "react": ">=17.0.0",
-    "react-dom": ">=17.0.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   },
   "dependencies": {
     "@types/draft-js": "^0.11.10",

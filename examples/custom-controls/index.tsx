@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react'
 import { Chip, Avatar, Button } from '@mui/material'
 import InvertColorsIcon from '@mui/icons-material/InvertColors'
-import MUIRichTextEditor, { TToolbarComponentProps } from '../../'
+import { TToolbarComponentProps } from '../../index'
 import { EditorState } from 'draft-js'
+import MUIRichTextEditor from '../../src/MUIRichTextEditor'
 
 const save = (data: string) => {
     console.log(data)
@@ -83,8 +84,9 @@ const CustomControls = () => {
                     name: "my-callback",
                     component: MyCallbackComponent,
                     type: "callback",
-                    onClick: (_editorState: EditorState, name: string, _anchor:HTMLElement) => {
+                    onClick: (_editorState: EditorState, name: string, _anchor:HTMLElement | null) => {
                         console.log(`Clicked ${name} control`)
+                        return _editorState
                     }
                 },
                 {

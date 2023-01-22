@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client";
-import Events from './events/'
 import Themed from './theme'
 import Basic from './basic'
 import RefSave from './ref-save'
@@ -15,6 +14,7 @@ import MaxLength from './max-length'
 import Autocomplete from './autocomplete'
 import AutocompleteAtomic from './autocomplete-atomic'
 import { createTheme, Theme, ThemeProvider } from '@mui/material/styles'
+import Events from "./events/index";
 
 const defaultTheme: Theme = createTheme({})
 

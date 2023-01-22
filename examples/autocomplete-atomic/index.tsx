@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react'
 import Avatar from '@mui/material/Avatar'
 import Chip from '@mui/material/Chip'
-import MUIRichTextEditor, { TAutocompleteItem } from '../../'
+import {TAutocompleteItem} from "../../index";
+import MUIRichTextEditor from "../../src/MUIRichTextEditor";
 
 const save = (data: string) => {
     console.log(data)

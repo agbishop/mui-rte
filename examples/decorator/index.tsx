@@ -1,5 +1,5 @@
 import React from 'react'
-import MUIRichTextEditor from '../../'
+import MUIRichTextEditor from "../../src/MUIRichTextEditor";
 
 const save = (data: string) => {
     console.log(data)
@@ -38,11 +38,11 @@ const Decorators = () => {
             decorators={[
                 {
                     component: MyHashTagDecorator,
-                    regex: /\#[\w]+/g
+                    regex: /\#\w+/g
                 },
                 {
                     component: MyAtDecorator,
-                    regex: /\@[\w]+/g
+                    regex: /\@\w+/g
                 }
             ]}
         />

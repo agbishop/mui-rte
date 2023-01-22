@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { WithStyles, StyleRules, CSSProperties, CreateCSSProperties, PropsFunc } from '@mui/styles';
 import { Theme } from '@mui/material/styles';
 import { EditorState, DraftHandleValue, SelectionState } from 'draft-js';
+import {SxProps} from "@mui/material";
 
 // Autocomplete
 
@@ -17,8 +18,8 @@ interface TAutocompleteProps extends WithStyles<typeof AutocompleteStyles> {
     selectedIndex: number;
     onClick: (selectedIndex: number) => void;
 }
-declare const AutocompleteStyles: () => Record<"container" | "item", import("@mui/styles").CSSProperties | import("@mui/styles").CreateCSSProperties<{}> | import("@mui/styles").PropsFunc<{}, import("@mui/styles").CreateCSSProperties<{}>>>;
-export declare const Autocomplete: React.ComponentType<Pick<React.PropsWithChildren<TAutocompleteProps>, "left" | "top" | "children" | "onClick" | "items" | "selectedIndex"> & import("@mui/material/styles").StyledComponentProps<"container" | "item">>;
+declare const AutocompleteStyles: () => Record<"container" | "item", SxProps<Theme>>;
+export declare const Autocomplete: React.ComponentType<Pick<React.PropsWithChildren<TAutocompleteProps>, "left" | "top" | "children" | "onClick" | "items" | "selectedIndex">>;
 
 // ToolbarButton
 
@@ -163,5 +164,6 @@ export interface TMUIRichTextEditorStyles {
     };
 }
 declare const MUIRichTextEditorStyles: (theme: Theme & TMUIRichTextEditorStyles) => StyleRules<{}, "error" | "toolbar" | "root" | "container" | "inheritFontSize" | "editor" | "editorContainer" | "editorReadOnly" | "hidePlaceholder" | "placeHolder" | "linkPopover" | "linkTextField" | "anchorLink" | "inlineToolbar">;
-declare const MUIRichTextEditor: import("react").JSXElementConstructor<Omit<IMUIRichTextEditorProps & import("react").RefAttributes<TMUIRichTextEditorRef>, "classes" | "theme"> & import("@mui/styles").StyledComponentProps<"error" | "toolbar" | "root" | "container" | "inheritFontSize" | "editor" | "editorContainer" | "editorReadOnly" | "hidePlaceholder" | "placeHolder" | "linkPopover" | "linkTextField" | "anchorLink" | "inlineToolbar">>;
+//"error" | "toolbar" | "root" | "container" | "inheritFontSize" | "editor" | "editorContainer" | "editorReadOnly" | "hidePlaceholder" | "placeHolder" | "linkPopover" | "linkTextField" | "anchorLink" | "inlineToolbar""error" | "toolbar" | "root" | "container" | "inheritFontSize" | "editor" | "editorContainer" | "editorReadOnly" | "hidePlaceholder" | "placeHolder" | "linkPopover" | "linkTextField" | "anchorLink" | "inlineToolbar"
+declare const MUIRichTextEditor: import("react").JSXElementConstructor<Omit<IMUIRichTextEditorProps & import("react").RefAttributes<TMUIRichTextEditorRef>, "classes" | "theme">>;
 export default MUIRichTextEditor;

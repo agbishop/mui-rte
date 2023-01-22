@@ -1,5 +1,5 @@
 import React from 'react'
-import MUIRichTextEditor from '../../'
+import MUIRichTextEditor from "../../src/MUIRichTextEditor";
 
 const InlineToolbar = () => {
     return (
