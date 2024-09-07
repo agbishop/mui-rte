@@ -1,4 +1,4 @@
-import { List, ListItem, Paper } from "@mui/material";
+import { List, ListItemButton , Paper } from "@mui/material";
 import React from "react";
 import { withStyles } from "tss-react/mui";
 
@@ -38,14 +38,14 @@ const Autocomplete = ({
     >
       <List dense={true}>
         {items.map((item, index) => (
-          <ListItem
+          <ListItemButton
             key={index}
             className={classes!.item}
             selected={index === selectedIndex}
             onClick={() => onClick(index)}
           >
             {item.content}
-          </ListItem>
+          </ListItemButton>
         ))}
       </List>
     </Paper>
